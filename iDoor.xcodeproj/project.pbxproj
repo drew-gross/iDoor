@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		79DBF1CB17E2A8130049AD1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DBF1CA17E2A8130049AD1D /* UIKit.framework */; };
+		79DBF1CD17E2A8130049AD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DBF1CC17E2A8130049AD1D /* Foundation.framework */; };
+		79DBF1CF17E2A8130049AD1D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DBF1CE17E2A8130049AD1D /* CoreGraphics.framework */; };
+		79DBF1D517E2A8130049AD1D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79DBF1D317E2A8130049AD1D /* InfoPlist.strings */; };
+		79DBF1D717E2A8130049AD1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DBF1D617E2A8130049AD1D /* main.m */; };
+		79DBF1DB17E2A8130049AD1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DBF1DA17E2A8130049AD1D /* AppDelegate.m */; };
+		79DBF1DD17E2A8130049AD1D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DBF1DC17E2A8130049AD1D /* Default.png */; };
+		79DBF1DF17E2A8130049AD1D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DBF1DE17E2A8130049AD1D /* Default@2x.png */; };
+		79DBF1E117E2A8130049AD1D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DBF1E017E2A8130049AD1D /* Default-568h@2x.png */; };
+		79DBF1E417E2A8130049AD1D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DBF1E217E2A8130049AD1D /* MainStoryboard.storyboard */; };
+		79DBF1E717E2A8130049AD1D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DBF1E617E2A8130049AD1D /* FirstViewController.m */; };
+		79DBF1E917E2A8130049AD1D /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DBF1E817E2A8130049AD1D /* first.png */; };
+		79DBF1EB17E2A8130049AD1D /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DBF1EA17E2A8130049AD1D /* first@2x.png */; };
+		79DBF1EE17E2A8130049AD1D /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DBF1ED17E2A8130049AD1D /* SecondViewController.m */; };
+		79DBF1F017E2A8130049AD1D /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DBF1EF17E2A8130049AD1D /* second.png */; };
+		79DBF1F217E2A8130049AD1D /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79DBF1F117E2A8130049AD1D /* second@2x.png */; };
+		79DBF1FA17E2A8130049AD1D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DBF1F917E2A8130049AD1D /* SenTestingKit.framework */; };
+		79DBF1FB17E2A8130049AD1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DBF1CA17E2A8130049AD1D /* UIKit.framework */; };
+		79DBF1FC17E2A8130049AD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DBF1CC17E2A8130049AD1D /* Foundation.framework */; };
+		79DBF20417E2A8130049AD1D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79DBF20217E2A8130049AD1D /* InfoPlist.strings */; };
+		79DBF20717E2A8130049AD1D /* iDoorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DBF20617E2A8130049AD1D /* iDoorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		79DBF1FD17E2A8130049AD1D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79DBF1BF17E2A8130049AD1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79DBF1C617E2A8130049AD1D;
+			remoteInfo = iDoor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		79DBF1C717E2A8130049AD1D /* iDoor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDoor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79DBF1CA17E2A8130049AD1D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		79DBF1CC17E2A8130049AD1D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		79DBF1CE17E2A8130049AD1D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		79DBF1D217E2A8130049AD1D /* iDoor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iDoor-Info.plist"; sourceTree = "<group>"; };
+		79DBF1D417E2A8130049AD1D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		79DBF1D617E2A8130049AD1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		79DBF1D817E2A8130049AD1D /* iDoor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iDoor-Prefix.pch"; sourceTree = "<group>"; };
+		79DBF1D917E2A8130049AD1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		79DBF1DA17E2A8130049AD1D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		79DBF1DC17E2A8130049AD1D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		79DBF1DE17E2A8130049AD1D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		79DBF1E017E2A8130049AD1D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		79DBF1E317E2A8130049AD1D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		79DBF1E517E2A8130049AD1D /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		79DBF1E617E2A8130049AD1D /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		79DBF1E817E2A8130049AD1D /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		79DBF1EA17E2A8130049AD1D /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		79DBF1EC17E2A8130049AD1D /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		79DBF1ED17E2A8130049AD1D /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		79DBF1EF17E2A8130049AD1D /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		79DBF1F117E2A8130049AD1D /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		79DBF1F817E2A8130049AD1D /* iDoorTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iDoorTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79DBF1F917E2A8130049AD1D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		79DBF20117E2A8130049AD1D /* iDoorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iDoorTests-Info.plist"; sourceTree = "<group>"; };
+		79DBF20317E2A8130049AD1D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		79DBF20517E2A8130049AD1D /* iDoorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iDoorTests.h; sourceTree = "<group>"; };
+		79DBF20617E2A8130049AD1D /* iDoorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDoorTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79DBF1C417E2A8130049AD1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79DBF1CB17E2A8130049AD1D /* UIKit.framework in Frameworks */,
+				79DBF1CD17E2A8130049AD1D /* Foundation.framework in Frameworks */,
+				79DBF1CF17E2A8130049AD1D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79DBF1F417E2A8130049AD1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79DBF1FA17E2A8130049AD1D /* SenTestingKit.framework in Frameworks */,
+				79DBF1FB17E2A8130049AD1D /* UIKit.framework in Frameworks */,
+				79DBF1FC17E2A8130049AD1D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		79DBF1BE17E2A8130049AD1D = {
+			isa = PBXGroup;
+			children = (
+				79DBF1D017E2A8130049AD1D /* iDoor */,
+				79DBF1FF17E2A8130049AD1D /* iDoorTests */,
+				79DBF1C917E2A8130049AD1D /* Frameworks */,
+				79DBF1C817E2A8130049AD1D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		79DBF1C817E2A8130049AD1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79DBF1C717E2A8130049AD1D /* iDoor.app */,
+				79DBF1F817E2A8130049AD1D /* iDoorTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79DBF1C917E2A8130049AD1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79DBF1CA17E2A8130049AD1D /* UIKit.framework */,
+				79DBF1CC17E2A8130049AD1D /* Foundation.framework */,
+				79DBF1CE17E2A8130049AD1D /* CoreGraphics.framework */,
+				79DBF1F917E2A8130049AD1D /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		79DBF1D017E2A8130049AD1D /* iDoor */ = {
+			isa = PBXGroup;
+			children = (
+				79DBF1D917E2A8130049AD1D /* AppDelegate.h */,
+				79DBF1DA17E2A8130049AD1D /* AppDelegate.m */,
+				79DBF1E217E2A8130049AD1D /* MainStoryboard.storyboard */,
+				79DBF1E517E2A8130049AD1D /* FirstViewController.h */,
+				79DBF1E617E2A8130049AD1D /* FirstViewController.m */,
+				79DBF1E817E2A8130049AD1D /* first.png */,
+				79DBF1EA17E2A8130049AD1D /* first@2x.png */,
+				79DBF1EC17E2A8130049AD1D /* SecondViewController.h */,
+				79DBF1ED17E2A8130049AD1D /* SecondViewController.m */,
+				79DBF1EF17E2A8130049AD1D /* second.png */,
+				79DBF1F117E2A8130049AD1D /* second@2x.png */,
+				79DBF1D117E2A8130049AD1D /* Supporting Files */,
+			);
+			path = iDoor;
+			sourceTree = "<group>";
+		};
+		79DBF1D117E2A8130049AD1D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79DBF1D217E2A8130049AD1D /* iDoor-Info.plist */,
+				79DBF1D317E2A8130049AD1D /* InfoPlist.strings */,
+				79DBF1D617E2A8130049AD1D /* main.m */,
+				79DBF1D817E2A8130049AD1D /* iDoor-Prefix.pch */,
+				79DBF1DC17E2A8130049AD1D /* Default.png */,
+				79DBF1DE17E2A8130049AD1D /* Default@2x.png */,
+				79DBF1E017E2A8130049AD1D /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79DBF1FF17E2A8130049AD1D /* iDoorTests */ = {
+			isa = PBXGroup;
+			children = (
+				79DBF20517E2A8130049AD1D /* iDoorTests.h */,
+				79DBF20617E2A8130049AD1D /* iDoorTests.m */,
+				79DBF20017E2A8130049AD1D /* Supporting Files */,
+			);
+			path = iDoorTests;
+			sourceTree = "<group>";
+		};
+		79DBF20017E2A8130049AD1D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				79DBF20117E2A8130049AD1D /* iDoorTests-Info.plist */,
+				79DBF20217E2A8130049AD1D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79DBF1C617E2A8130049AD1D /* iDoor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79DBF20A17E2A8130049AD1D /* Build configuration list for PBXNativeTarget "iDoor" */;
+			buildPhases = (
+				79DBF1C317E2A8130049AD1D /* Sources */,
+				79DBF1C417E2A8130049AD1D /* Frameworks */,
+				79DBF1C517E2A8130049AD1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iDoor;
+			productName = iDoor;
+			productReference = 79DBF1C717E2A8130049AD1D /* iDoor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		79DBF1F717E2A8130049AD1D /* iDoorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79DBF20D17E2A8130049AD1D /* Build configuration list for PBXNativeTarget "iDoorTests" */;
+			buildPhases = (
+				79DBF1F317E2A8130049AD1D /* Sources */,
+				79DBF1F417E2A8130049AD1D /* Frameworks */,
+				79DBF1F517E2A8130049AD1D /* Resources */,
+				79DBF1F617E2A8130049AD1D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				79DBF1FE17E2A8130049AD1D /* PBXTargetDependency */,
+			);
+			name = iDoorTests;
+			productName = iDoorTests;
+			productReference = 79DBF1F817E2A8130049AD1D /* iDoorTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		79DBF1BF17E2A8130049AD1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Drew Gross";
+			};
+			buildConfigurationList = 79DBF1C217E2A8130049AD1D /* Build configuration list for PBXProject "iDoor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 79DBF1BE17E2A8130049AD1D;
+			productRefGroup = 79DBF1C817E2A8130049AD1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				79DBF1C617E2A8130049AD1D /* iDoor */,
+				79DBF1F717E2A8130049AD1D /* iDoorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		79DBF1C517E2A8130049AD1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79DBF1D517E2A8130049AD1D /* InfoPlist.strings in Resources */,
+				79DBF1DD17E2A8130049AD1D /* Default.png in Resources */,
+				79DBF1DF17E2A8130049AD1D /* Default@2x.png in Resources */,
+				79DBF1E117E2A8130049AD1D /* Default-568h@2x.png in Resources */,
+				79DBF1E417E2A8130049AD1D /* MainStoryboard.storyboard in Resources */,
+				79DBF1E917E2A8130049AD1D /* first.png in Resources */,
+				79DBF1EB17E2A8130049AD1D /* first@2x.png in Resources */,
+				79DBF1F017E2A8130049AD1D /* second.png in Resources */,
+				79DBF1F217E2A8130049AD1D /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79DBF1F517E2A8130049AD1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79DBF20417E2A8130049AD1D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		79DBF1F617E2A8130049AD1D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		79DBF1C317E2A8130049AD1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79DBF1D717E2A8130049AD1D /* main.m in Sources */,
+				79DBF1DB17E2A8130049AD1D /* AppDelegate.m in Sources */,
+				79DBF1E717E2A8130049AD1D /* FirstViewController.m in Sources */,
+				79DBF1EE17E2A8130049AD1D /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		79DBF1F317E2A8130049AD1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79DBF20717E2A8130049AD1D /* iDoorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		79DBF1FE17E2A8130049AD1D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79DBF1C617E2A8130049AD1D /* iDoor */;
+			targetProxy = 79DBF1FD17E2A8130049AD1D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		79DBF1D317E2A8130049AD1D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79DBF1D417E2A8130049AD1D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		79DBF1E217E2A8130049AD1D /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79DBF1E317E2A8130049AD1D /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		79DBF20217E2A8130049AD1D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				79DBF20317E2A8130049AD1D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		79DBF20817E2A8130049AD1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		79DBF20917E2A8130049AD1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		79DBF20B17E2A8130049AD1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iDoor/iDoor-Prefix.pch";
+				INFOPLIST_FILE = "iDoor/iDoor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		79DBF20C17E2A8130049AD1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iDoor/iDoor-Prefix.pch";
+				INFOPLIST_FILE = "iDoor/iDoor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		79DBF20E17E2A8130049AD1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iDoor.app/iDoor";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iDoor/iDoor-Prefix.pch";
+				INFOPLIST_FILE = "iDoorTests/iDoorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		79DBF20F17E2A8130049AD1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iDoor.app/iDoor";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iDoor/iDoor-Prefix.pch";
+				INFOPLIST_FILE = "iDoorTests/iDoorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		79DBF1C217E2A8130049AD1D /* Build configuration list for PBXProject "iDoor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79DBF20817E2A8130049AD1D /* Debug */,
+				79DBF20917E2A8130049AD1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		79DBF20A17E2A8130049AD1D /* Build configuration list for PBXNativeTarget "iDoor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79DBF20B17E2A8130049AD1D /* Debug */,
+				79DBF20C17E2A8130049AD1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		79DBF20D17E2A8130049AD1D /* Build configuration list for PBXNativeTarget "iDoorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79DBF20E17E2A8130049AD1D /* Debug */,
+				79DBF20F17E2A8130049AD1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 79DBF1BF17E2A8130049AD1D /* Project object */;
+}
