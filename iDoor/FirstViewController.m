@@ -9,6 +9,9 @@
 #import "FirstViewController.h"
 
 @interface FirstViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *messageField;
+@property (weak, nonatomic) IBOutlet UILabel *mainLabel;
+- (IBAction)sendMessage:(id)sender;
 
 @end
 
@@ -26,4 +29,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)sendMessage:(id)sender {
+}
 @end
