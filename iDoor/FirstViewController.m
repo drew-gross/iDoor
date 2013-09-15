@@ -30,5 +30,7 @@
 }
 
 - (IBAction)sendMessage:(id)sender {
+    UIAlertView *sentView = [[UIAlertView alloc] initWithTitle:@"Message Sent!" message:[@"Your message has been sent: " stringByAppendingString:self.messageField.text] delegate:nil cancelButtonTitle:@"Hooray!" otherButtonTitles:nil];
+    [sentView show];
 }
 @end
