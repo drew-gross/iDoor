@@ -1,12 +1,15 @@
 PODS:
+  - ACEDrawingView (1.1.0)
   - LRResty (0.11.0):
     - NSData+Base64 (~> 1.0)
   - NSData+Base64 (1.0.0)
 
 DEPENDENCIES:
+  - ACEDrawingView
   - LRResty
 
 SPEC CHECKSUMS:
+  ACEDrawingView: c11f95c576d5d0ae81f1c17d0ecbf81007f7034d
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
   NSData+Base64: 36c4e5b6479259c1a68866ccd2a8dd385c9744f7
 
