@@ -61,23 +61,7 @@
     [self.player setDelegate:self];
     self.alarm = [[UIAlertView alloc] initWithTitle:@"Hey, you!" message:@"Stop stealin' my iPad!" delegate:Nil cancelButtonTitle:@"No" otherButtonTitles:nil];
     
-    
     [self setupCamera];
-    
-    /*
-    //set up camera
-    self.cameraSession = [[AVCaptureSession alloc] init];
-    self.cameraSession.sessionPreset = AVCaptureSessionPresetPhoto;
-    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    NSError *e = nil;
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&e];
-    [self.cameraSession addInput:input];
-    
-    self.imageOutput = [[AVCaptureStillImageOutput alloc] init];NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys: AVVideoCodecJPEG, AVVideoCodecKey, nil];
-    [self.imageOutput setOutputSettings:outputSettings];
-    [self.cameraSession addOutput:self.imageOutput];
-    
-    [self.cameraSession startRunning];*/
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,6 +82,7 @@
         ave += [self.accelBuffer[i] doubleValue];
     }
     ave /= ACCEL_BUFFER_SIZE;
+    NSLog(@"%f, %f", ave, accelScalar);
     if ((ave > 1.07 || ave < 0.92) && !self.alarm.isVisible) {
         [self.alarm show];
         [self.player play];
@@ -132,6 +117,9 @@
         [sentView show];
         sender.enabled = true;
         [self.drawingView clear];
+        [[LRResty client] post:@"http://idoor.herokuapp.com/messages" payload:drawingData withBlock:^(LRRestyResponse *response) {
+            //nothing
+        }];
     }];
 }
 
