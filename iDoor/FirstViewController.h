@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface FirstViewController : UIViewController <UIAccelerometerDelegate, AVAudioPlayerDelegate>
+@interface FirstViewController : UIViewController <UIAccelerometerDelegate, AVAudioPlayerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @end
