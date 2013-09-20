@@ -31,13 +31,20 @@
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Send Drew a Message" id="aUS-0b-ljF">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="q0r-vA-2f9">
+                            <connections>
+                                <action selector="clearMessage:" destination="2" id="eiN-Uh-zcF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Send" id="6w6-6w-gmb">
                             <connections>
                                 <action selector="sendMessage:" destination="2" id="tHb-8s-78f"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="drawingView" destination="ghg-Dh-LH2" id="nLh-yl-UCE"/>

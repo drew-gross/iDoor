@@ -84,7 +84,12 @@
         UIAlertView *sentView = [[UIAlertView alloc] initWithTitle:@"Message Sent!" message:@"Your message has been sent!" delegate:nil cancelButtonTitle:@"Hooray!" otherButtonTitles:nil];
         [sentView show];
         sender.enabled = true;
+        [self.drawingView clear];
     }];
+}
+
+- (IBAction)clearMessage:(id)sender {
+    [self.drawingView clear];
 }
 
 @end
