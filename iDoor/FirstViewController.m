@@ -72,8 +72,7 @@
     }
 }
 
-- (void) audioPlayerDidFinishPlaying: (AVAudioPlayer *) player
-                        successfully: (BOOL) completed {
+- (void) audioPlayerDidFinishPlaying: (AVAudioPlayer *) player successfully: (BOOL) completed {
     if (completed == YES) {
         [self.player play];
     }
