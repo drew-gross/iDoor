@@ -13,7 +13,10 @@
 @interface FirstViewController ()
 
 @property (weak, nonatomic) IBOutlet ACEDrawingView *drawingView;
+
 @property (strong, nonatomic) UIAlertView *alarm;
+@property (strong, nonatomic) AVAudioPlayer *player;
+
 @property (strong, nonatomic) NSMutableArray *accelBuffer;
 @property (nonatomic) NSUInteger accelBufferIndex;
 #define ACCEL_BUFFER_SIZE (30)
@@ -27,16 +30,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //set up accel
     UIAccelerometer *a = [UIAccelerometer sharedAccelerometer];
     a.delegate = self;
     a.updateInterval = 1.f/60.f;
-    //set up alarm;
-    self.alarm = [[UIAlertView alloc] initWithTitle:@"Hey, you!" message:@"Stop stealin' my iPad!" delegate:Nil cancelButtonTitle:@"No" otherButtonTitles:nil];
     self.accelBuffer = [[NSMutableArray alloc] initWithCapacity:ACCEL_BUFFER_SIZE];
     self.accelBufferIndex = 0;
     for (int i = 0; i < ACCEL_BUFFER_SIZE; i++){
         [self.accelBuffer addObject:@(1)];
     }
+    //set up alarm
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"alarm" ofType:@"wav"];
+    NSURL *soundFileURL = [[NSURL alloc] initFileURLWithPath:soundFilePath];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+    [self.player prepareToPlay];
+    [self.player setDelegate:self];
+    self.alarm = [[UIAlertView alloc] initWithTitle:@"Hey, you!" message:@"Stop stealin' my iPad!" delegate:Nil cancelButtonTitle:@"No" otherButtonTitles:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,9 +66,16 @@
         ave += [self.accelBuffer[i] doubleValue];
     }
     ave /= ACCEL_BUFFER_SIZE;
-    NSLog(@"ave: %f, val: %f", ave, accelScalar);
     if ((ave > 1.06 || ave < 0.93) && !self.alarm.isVisible) {
         [self.alarm show];
+        [self.player play];
+    }
+}
+
+- (void) audioPlayerDidFinishPlaying: (AVAudioPlayer *) player
+                        successfully: (BOOL) completed {
+    if (completed == YES) {
+        [self.player play];
     }
 }
 
@@ -71,4 +87,5 @@
         sender.enabled = true;
     }];
 }
+
 @end

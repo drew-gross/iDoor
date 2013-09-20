@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		790730D417EBE3150063FABE /* alarm.wav in Resources */ = {isa = PBXBuildFile; fileRef = 790730D317EBE3150063FABE /* alarm.wav */; };
+		790730D717EBF6360063FABE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 790730D617EBF6360063FABE /* AVFoundation.framework */; };
 		79D2A6AB17E90B69006800AD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 79D2A6AA17E90B69006800AD /* Podfile */; };
 		79DBF1CB17E2A8130049AD1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DBF1CA17E2A8130049AD1D /* UIKit.framework */; };
 		79DBF1CD17E2A8130049AD1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DBF1CC17E2A8130049AD1D /* Foundation.framework */; };
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		019D2C56CBC84D4CAB34A22F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		790730D317EBE3150063FABE /* alarm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = alarm.wav; path = iDoor/alarm.wav; sourceTree = "<group>"; };
+		790730D617EBF6360063FABE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		79D2A6AA17E90B69006800AD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		79DBF1C717E2A8130049AD1D /* iDoor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDoor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79DBF1CA17E2A8130049AD1D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -81,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				790730D717EBF6360063FABE /* AVFoundation.framework in Frameworks */,
 				79DBF1CB17E2A8130049AD1D /* UIKit.framework in Frameworks */,
 				79DBF1CD17E2A8130049AD1D /* Foundation.framework in Frameworks */,
 				79DBF1CF17E2A8130049AD1D /* CoreGraphics.framework in Frameworks */,
@@ -101,9 +106,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		790730D517EBE8850063FABE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				790730D317EBE3150063FABE /* alarm.wav */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		79DBF1BE17E2A8130049AD1D = {
 			isa = PBXGroup;
 			children = (
+				790730D517EBE8850063FABE /* Resources */,
 				79D2A6AA17E90B69006800AD /* Podfile */,
 				79DBF1D017E2A8130049AD1D /* iDoor */,
 				79DBF1FF17E2A8130049AD1D /* iDoorTests */,
@@ -125,6 +139,7 @@
 		79DBF1C917E2A8130049AD1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				790730D617EBF6360063FABE /* AVFoundation.framework */,
 				79DBF1CA17E2A8130049AD1D /* UIKit.framework */,
 				79DBF1CC17E2A8130049AD1D /* Foundation.framework */,
 				79DBF1CE17E2A8130049AD1D /* CoreGraphics.framework */,
@@ -266,6 +281,7 @@
 			files = (
 				79DBF1D517E2A8130049AD1D /* InfoPlist.strings in Resources */,
 				79DBF1DD17E2A8130049AD1D /* Default.png in Resources */,
+				790730D417EBE3150063FABE /* alarm.wav in Resources */,
 				79DBF1DF17E2A8130049AD1D /* Default@2x.png in Resources */,
 				79DBF1E117E2A8130049AD1D /* Default-568h@2x.png in Resources */,
 				79DBF1E417E2A8130049AD1D /* MainStoryboard.storyboard in Resources */,
