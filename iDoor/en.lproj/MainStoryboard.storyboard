@@ -43,11 +43,15 @@
                                 <action selector="sendMessage:" destination="2" id="tHb-8s-78f"/>
                             </connections>
                         </barButtonItem>
+                        <connections>
+                            <outlet property="rightBarButtonItem" destination="6w6-6w-gmb" id="IZP-MT-GXT"/>
+                        </connections>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="drawingView" destination="ghg-Dh-LH2" id="nLh-yl-UCE"/>
+                        <outlet property="sendButton" destination="aUS-0b-ljF" id="7hr-fR-k3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>

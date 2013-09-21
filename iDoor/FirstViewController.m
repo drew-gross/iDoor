@@ -15,6 +15,7 @@
 
 //message
 @property (weak, nonatomic) IBOutlet ACEDrawingView *drawingView;
+@property (weak, nonatomic) IBOutlet UINavigationItem *sendButton;
 
 //alarm
 @property (strong, nonatomic) UIAlertView *alarm;
@@ -126,6 +127,9 @@
 }
 
 - (IBAction)sendMessage:(UITabBarItem*)sender {
+    sender.enabled = false;
+    self.sendButton.title = @"Sending...";
+    
     //take a picture
     AVCaptureConnection *connection = nil;
     for (AVCaptureConnection *conn in self.imageOutput.connections) {
@@ -137,15 +141,28 @@
         }
     }
     
-    NSData *imageData = UIImagePNGRepresentation(self.cameraImage);
-    NSData *drawingData = UIImagePNGRepresentation(self.drawingView.image);
+    CGSize sentImageSize = CGSizeMake(500, 500);
+    UIGraphicsBeginImageContext(sentImageSize);
+    [self.cameraImage drawInRect:CGRectMake(0,0,sentImageSize.width,sentImageSize.height)];
+    UIImage* cameraImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
+    CGSize sentDrawingSize = CGSizeMake(500, 500);
+    UIGraphicsBeginImageContext(sentDrawingSize);
+    [self.drawingView.image drawInRect:CGRectMake(0,0,sentDrawingSize.width,sentDrawingSize.height)];
+    UIImage* drawingImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSData *imageData = UIImagePNGRepresentation(cameraImage);
+    NSData *drawingData = UIImagePNGRepresentation(drawingImage);
     
     //send the message
-    sender.enabled = false;
     [[LRResty client] post:@"http://idoor.herokuapp.com/messages" payload:drawingData withBlock:^(LRRestyResponse *response){
         UIAlertView *sentView = [[UIAlertView alloc] initWithTitle:@"Message Sent!" message:@"Your message has been sent!" delegate:nil cancelButtonTitle:@"Hooray!" otherButtonTitles:nil];
         [sentView show];
         sender.enabled = true;
+        self.sendButton.title = @"Send Drew a Message";
         [self.drawingView clear];
         [[LRResty client] post:@"http://idoor.herokuapp.com/messages" payload:imageData withBlock:^(LRRestyResponse *response) {
             //nothing
