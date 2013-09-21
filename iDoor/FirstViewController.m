@@ -9,6 +9,7 @@
 #import "FirstViewController.h"
 #import <LRResty.h>
 #import <ACEDrawingView.h>
+#import <CoreMotion/CoreMotion.h>
 
 @interface FirstViewController ()
 
@@ -21,6 +22,7 @@
 @property (nonatomic) BOOL alarmPhotoTimerAdded;
 
 //accel check
+@property (strong, nonatomic) CMMotionManager *motionManager;
 @property (strong, nonatomic) NSMutableArray *accelBufferX;
 @property (strong, nonatomic) NSMutableArray *accelBufferY;
 @property (strong, nonatomic) NSMutableArray *accelBufferZ;
@@ -46,10 +48,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //set up accel
-    UIAccelerometer *a = [UIAccelerometer sharedAccelerometer];
-    a.delegate = self;
-    a.updateInterval = 1.f/60.f;
+    [self setupAccelerometer];
+    [self setupAlarm];
+    [self setupCamera];
+    
+}
+
+- (void)setupAccelerometer{
     self.accelBufferX = [[NSMutableArray alloc] initWithCapacity:ACCEL_BUFFER_SIZE];
     self.accelBufferY = [[NSMutableArray alloc] initWithCapacity:ACCEL_BUFFER_SIZE];
     self.accelBufferZ = [[NSMutableArray alloc] initWithCapacity:ACCEL_BUFFER_SIZE];
@@ -59,17 +64,47 @@
         [self.accelBufferY addObject:@(0)];
         [self.accelBufferZ addObject:@(0)];
     }
-    
-    //set up alarm
+    self.motionManager = [[CMMotionManager alloc] init];
+    self.motionManager.accelerometerUpdateInterval = 0.2;
+    [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error){
+        //write new value into circular buffer
+        self.accelBufferX[self.accelBufferIndex] = @(accelerometerData.acceleration.x);
+        self.accelBufferY[self.accelBufferIndex] = @(accelerometerData.acceleration.y);
+        self.accelBufferZ[self.accelBufferIndex] = @(accelerometerData.acceleration.z);
+        self.accelBufferIndex = (self.accelBufferIndex + 1) % ACCEL_BUFFER_SIZE;
+        
+        //check circular buffer average
+        double aveX = 0;
+        double aveY = 0;
+        double aveZ = 0;
+        for (int i = 0; i < ACCEL_BUFFER_SIZE; i++) {
+            aveX += [self.accelBufferX[i] doubleValue];
+            aveY += [self.accelBufferY[i] doubleValue];
+            aveZ += [self.accelBufferZ[i] doubleValue];
+        }
+        aveX /= ACCEL_BUFFER_SIZE;
+        aveY /= ACCEL_BUFFER_SIZE;
+        aveZ /= ACCEL_BUFFER_SIZE;
+        if ((aveX < -1.15 || aveX > -0.85) && !self.alarm.isVisible) {
+            [self.alarm show];
+            [self.player play];
+            if (!self.alarmPhotoTimerAdded) {
+                self.alarmPhotoTimerAdded = true;
+                [self alarmPhoto];
+                [[NSRunLoop currentRunLoop] addTimer:[NSTimer timerWithTimeInterval:60*3 target:self selector:@selector(alarmPhoto) userInfo:nil repeats:YES] forMode:NSDefaultRunLoopMode];
+            }
+        }
+    }];
+}
+
+- (void)setupAlarm
+{
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"alarm" ofType:@"wav"];
     NSURL *soundFileURL = [[NSURL alloc] initFileURLWithPath:soundFilePath];
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
     [self.player prepareToPlay];
     [self.player setDelegate:self];
     self.alarm = [[UIAlertView alloc] initWithTitle:@"Hey, you!" message:@"Stop stealin' my iPad!" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    
-    [self setupCamera];
-    
     //if alarming, send another image every 3 minutes
     self.alarmPhotoTimerAdded = false;
 }
@@ -78,36 +113,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
-    //write new value into circular buffer
-    self.accelBufferX[self.accelBufferIndex] = @(acceleration.x);
-    self.accelBufferY[self.accelBufferIndex] = @(acceleration.y);
-    self.accelBufferZ[self.accelBufferIndex] = @(acceleration.z);
-    self.accelBufferIndex = (self.accelBufferIndex + 1) % ACCEL_BUFFER_SIZE;
-    
-    //check circular buffer average
-    double aveX = 0;
-    double aveY = 0;
-    double aveZ = 0;
-    for (int i = 0; i < ACCEL_BUFFER_SIZE; i++) {
-        aveX += [self.accelBufferX[i] doubleValue];
-        aveY += [self.accelBufferY[i] doubleValue];
-        aveZ += [self.accelBufferZ[i] doubleValue];
-    }
-    aveX /= ACCEL_BUFFER_SIZE;
-    aveY /= ACCEL_BUFFER_SIZE;
-    aveZ /= ACCEL_BUFFER_SIZE;
-    if ((aveX < -1.15 || aveX > -0.85) && !self.alarm.isVisible) {
-        [self.alarm show];
-        [self.player play];
-        if (!self.alarmPhotoTimerAdded) {
-            self.alarmPhotoTimerAdded = true;
-            [self alarmPhoto];
-            [[NSRunLoop currentRunLoop] addTimer:[NSTimer timerWithTimeInterval:60*3 target:self selector:@selector(alarmPhoto) userInfo:nil repeats:YES] forMode:NSDefaultRunLoopMode];
-        }
-    }
 }
 
 - (void) alarmPhoto {
