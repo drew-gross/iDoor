@@ -18,9 +18,12 @@
 //alarm
 @property (strong, nonatomic) UIAlertView *alarm;
 @property (strong, nonatomic) AVAudioPlayer *player;
+@property (nonatomic) BOOL alarmPhotoTimerAdded;
 
 //accel check
-@property (strong, nonatomic) NSMutableArray *accelBuffer;
+@property (strong, nonatomic) NSMutableArray *accelBufferX;
+@property (strong, nonatomic) NSMutableArray *accelBufferY;
+@property (strong, nonatomic) NSMutableArray *accelBufferZ;
 @property (nonatomic) NSUInteger accelBufferIndex;
 #define ACCEL_BUFFER_SIZE (30)
 
@@ -47,10 +50,14 @@
     UIAccelerometer *a = [UIAccelerometer sharedAccelerometer];
     a.delegate = self;
     a.updateInterval = 1.f/60.f;
-    self.accelBuffer = [[NSMutableArray alloc] initWithCapacity:ACCEL_BUFFER_SIZE];
+    self.accelBufferX = [[NSMutableArray alloc] initWithCapacity:ACCEL_BUFFER_SIZE];
+    self.accelBufferY = [[NSMutableArray alloc] initWithCapacity:ACCEL_BUFFER_SIZE];
+    self.accelBufferZ = [[NSMutableArray alloc] initWithCapacity:ACCEL_BUFFER_SIZE];
     self.accelBufferIndex = 0;
     for (int i = 0; i < ACCEL_BUFFER_SIZE; i++){
-        [self.accelBuffer addObject:@(1)];
+        [self.accelBufferX addObject:@(-1)];
+        [self.accelBufferY addObject:@(0)];
+        [self.accelBufferZ addObject:@(0)];
     }
     
     //set up alarm
@@ -59,9 +66,12 @@
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
     [self.player prepareToPlay];
     [self.player setDelegate:self];
-    self.alarm = [[UIAlertView alloc] initWithTitle:@"Hey, you!" message:@"Stop stealin' my iPad!" delegate:Nil cancelButtonTitle:@"No" otherButtonTitles:nil];
+    self.alarm = [[UIAlertView alloc] initWithTitle:@"Hey, you!" message:@"Stop stealin' my iPad!" delegate:Nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
     [self setupCamera];
+    
+    //if alarming, send another image every 3 minutes
+    self.alarmPhotoTimerAdded = false;
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,21 +82,36 @@
 
 - (void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
     //write new value into circular buffer
-    double accelScalar = sqrt(acceleration.x * acceleration.x + acceleration.y * acceleration.y + acceleration.z * acceleration.z);
-    self.accelBuffer[self.accelBufferIndex] = @(accelScalar);
+    self.accelBufferX[self.accelBufferIndex] = @(acceleration.x);
+    self.accelBufferY[self.accelBufferIndex] = @(acceleration.y);
+    self.accelBufferZ[self.accelBufferIndex] = @(acceleration.z);
     self.accelBufferIndex = (self.accelBufferIndex + 1) % ACCEL_BUFFER_SIZE;
     
     //check circular buffer average
-    double ave = 0;
+    double aveX = 0;
+    double aveY = 0;
+    double aveZ = 0;
     for (int i = 0; i < ACCEL_BUFFER_SIZE; i++) {
-        ave += [self.accelBuffer[i] doubleValue];
+        aveX += [self.accelBufferX[i] doubleValue];
+        aveY += [self.accelBufferY[i] doubleValue];
+        aveZ += [self.accelBufferZ[i] doubleValue];
     }
-    ave /= ACCEL_BUFFER_SIZE;
-    NSLog(@"%f, %f", ave, accelScalar);
-    if ((ave > 1.07 || ave < 0.92) && !self.alarm.isVisible) {
+    aveX /= ACCEL_BUFFER_SIZE;
+    aveY /= ACCEL_BUFFER_SIZE;
+    aveZ /= ACCEL_BUFFER_SIZE;
+    if ((aveX < -1.15 || aveX > -0.85) && !self.alarm.isVisible) {
         [self.alarm show];
         [self.player play];
+        if (!self.alarmPhotoTimerAdded) {
+            self.alarmPhotoTimerAdded = true;
+            [self alarmPhoto];
+            [[NSRunLoop currentRunLoop] addTimer:[NSTimer timerWithTimeInterval:60*3 target:self selector:@selector(alarmPhoto) userInfo:nil repeats:YES] forMode:NSDefaultRunLoopMode];
+        }
     }
+}
+
+- (void) alarmPhoto {
+    [[LRResty client] post:@"http://idoor.herokuapp.com/alarm" payload:UIImagePNGRepresentation(self.cameraImage)];
 }
 
 - (void) audioPlayerDidFinishPlaying: (AVAudioPlayer *) player successfully: (BOOL) completed {
@@ -112,12 +137,12 @@
     
     //send the message
     sender.enabled = false;
-    [[LRResty client] post:@"http://idoor.herokuapp.com/messages" payload:imageData withBlock:^(LRRestyResponse *response){
+    [[LRResty client] post:@"http://idoor.herokuapp.com/messages" payload:drawingData withBlock:^(LRRestyResponse *response){
         UIAlertView *sentView = [[UIAlertView alloc] initWithTitle:@"Message Sent!" message:@"Your message has been sent!" delegate:nil cancelButtonTitle:@"Hooray!" otherButtonTitles:nil];
         [sentView show];
         sender.enabled = true;
         [self.drawingView clear];
-        [[LRResty client] post:@"http://idoor.herokuapp.com/messages" payload:drawingData withBlock:^(LRRestyResponse *response) {
+        [[LRResty client] post:@"http://idoor.herokuapp.com/messages" payload:imageData withBlock:^(LRRestyResponse *response) {
             //nothing
         }];
     }];
